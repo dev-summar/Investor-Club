@@ -172,52 +172,52 @@ export const StudentPortfolioModal = () => {
           display: 'grid',
           gridTemplateColumns: 'repeat(2, 1fr)',
           gap: '12px',
-          borderBottom: '1px solid #e2e8f0'
+          borderBottom: '1px solid #e5e7eb'
         }}>
-          <div style={{ padding: '12px 14px', backgroundColor: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-            <div style={{ fontSize: '10px', color: '#64748b', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+          <div style={{ padding: '12px 14px', backgroundColor: '#f9fafb', borderRadius: '8px', border: '1px solid #e5e7eb' }}>
+            <div style={{ fontSize: '11px', color: '#6b7280', fontWeight: '500', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
               Portfolio Valuation
             </div>
-            <div className="mono-num" style={{ fontSize: '19px', fontWeight: '800', color: '#0f172a', marginTop: '3px' }}>
+            <div className="mono-num" style={{ fontSize: '18px', fontWeight: '600', color: '#111827', marginTop: '2px' }}>
               {formatINR(selectedStudent.portfolioValue)}
             </div>
-            <div style={{ fontSize: '11px', color: '#64748b', marginTop: '2px' }}>
+            <div style={{ fontSize: '12px', color: '#6b7280', marginTop: '1px', fontWeight: '400' }}>
               ₹5,00,000 Baseline
             </div>
           </div>
 
-          <div style={{ padding: '12px 14px', backgroundColor: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-            <div style={{ fontSize: '10px', color: '#64748b', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+          <div style={{ padding: '12px 14px', backgroundColor: '#f9fafb', borderRadius: '8px', border: '1px solid #e5e7eb' }}>
+            <div style={{ fontSize: '11px', color: '#6b7280', fontWeight: '500', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
               Unallocated Cash Margin
             </div>
-            <div className="mono-num" style={{ fontSize: '19px', fontWeight: '800', color: '#0f172a', marginTop: '3px' }}>
+            <div className="mono-num" style={{ fontSize: '18px', fontWeight: '600', color: '#111827', marginTop: '2px' }}>
               {formatINR(selectedStudent.cashBalance)}
             </div>
-            <div style={{ fontSize: '11px', color: '#059669', fontWeight: '600', marginTop: '2px' }}>
+            <div style={{ fontSize: '12px', color: '#059669', fontWeight: '500', marginTop: '1px' }}>
               Ready for Orders
             </div>
           </div>
 
-          <div style={{ padding: '12px 14px', backgroundColor: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-            <div style={{ fontSize: '10px', color: '#64748b', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+          <div style={{ padding: '12px 14px', backgroundColor: '#f9fafb', borderRadius: '8px', border: '1px solid #e5e7eb' }}>
+            <div style={{ fontSize: '11px', color: '#6b7280', fontWeight: '500', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
               Invested Stock Equity
             </div>
-            <div className="mono-num" style={{ fontSize: '19px', fontWeight: '800', color: '#0f172a', marginTop: '3px' }}>
+            <div className="mono-num" style={{ fontSize: '18px', fontWeight: '600', color: '#111827', marginTop: '2px' }}>
               {formatINR(selectedStudent.equityValue)}
             </div>
-            <div style={{ fontSize: '11px', color: '#64748b', marginTop: '2px' }}>
+            <div style={{ fontSize: '12px', color: '#6b7280', marginTop: '1px', fontWeight: '400' }}>
               {(selectedStudent.holdings || []).length} Open Positions
             </div>
           </div>
 
-          <div style={{ padding: '12px 14px', backgroundColor: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-            <div style={{ fontSize: '10px', color: '#64748b', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+          <div style={{ padding: '12px 14px', backgroundColor: '#f9fafb', borderRadius: '8px', border: '1px solid #e5e7eb' }}>
+            <div style={{ fontSize: '11px', color: '#6b7280', fontWeight: '500', textTransform: 'uppercase', letterSpacing: '0.03em' }}>
               Unrealized MTM P&L
             </div>
-            <div className="mono-num" style={{ fontSize: '19px', fontWeight: '800', color: (selectedStudent.unrealizedPnL || 0) >= 0 ? '#059669' : '#dc2626', marginTop: '3px' }}>
+            <div className="mono-num" style={{ fontSize: '18px', fontWeight: '600', color: (selectedStudent.unrealizedPnL || 0) >= 0 ? '#059669' : '#dc2626', marginTop: '2px' }}>
               {(selectedStudent.unrealizedPnL || 0) >= 0 ? `+${formatINR(selectedStudent.unrealizedPnL || 0)}` : formatINR(selectedStudent.unrealizedPnL || 0)}
             </div>
-            <div style={{ fontSize: '11px', color: (selectedStudent.unrealizedPnL || 0) >= 0 ? '#059669' : '#dc2626', fontWeight: '600', marginTop: '2px' }}>
+            <div style={{ fontSize: '12px', color: (selectedStudent.unrealizedPnL || 0) >= 0 ? '#059669' : '#dc2626', fontWeight: '500', marginTop: '1px' }}>
               Return: {selectedStudent.returnPct >= 0 ? `+${selectedStudent.returnPct}%` : `${selectedStudent.returnPct}%`}
             </div>
           </div>
@@ -225,15 +225,15 @@ export const StudentPortfolioModal = () => {
 
         {/* Drawer Body: Stock Holdings */}
         <div style={{ padding: '20px 22px', flex: 1, overflowY: 'auto' }}>
-          <div style={{ fontSize: '13px', fontWeight: '800', color: '#0f172a', marginBottom: '12px', letterSpacing: '-0.01em' }}>
+          <div style={{ fontSize: '13px', fontWeight: '600', color: '#111827', marginBottom: '12px' }}>
             Live Stock Holdings & Positions
           </div>
 
           {(!selectedStudent.holdings || selectedStudent.holdings.length === 0) ? (
-            <div style={{ padding: '28px 16px', textAlign: 'center', backgroundColor: '#f8fafc', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
-              <Briefcase size={28} color="#94a3b8" style={{ margin: '0 auto 6px auto' }} />
-              <div style={{ fontSize: '13px', fontWeight: '700', color: '#0f172a' }}>No open stock positions</div>
-              <p style={{ fontSize: '12px', color: '#64748b', marginTop: '4px' }}>
+            <div style={{ padding: '24px 16px', textAlign: 'center', backgroundColor: '#f9fafb', borderRadius: '8px', border: '1px solid #e5e7eb' }}>
+              <Briefcase size={24} color="#9ca3af" style={{ margin: '0 auto 6px auto' }} />
+              <div style={{ fontSize: '13px', fontWeight: '500', color: '#111827' }}>No open stock positions</div>
+              <p style={{ fontSize: '12px', color: '#6b7280', marginTop: '4px', fontWeight: '400' }}>
                 100% of capital ({formatINR(selectedStudent.cashBalance)}) is held as available cash balance on Mega Bull.
               </p>
             </div>

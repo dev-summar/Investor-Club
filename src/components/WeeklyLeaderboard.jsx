@@ -120,25 +120,25 @@ export const WeeklyLeaderboard = () => {
       }}>
         {top3.map((student, idx) => {
           const medalConfig = [
-            { badgeBg: '#fffbeb', badgeText: '#d97706', badgeBorder: '#fde68a', label: 'Rank 1 • Gold Medal' },
-            { badgeBg: '#f1f5f9', badgeText: '#475569', badgeBorder: '#cbd5e1', label: 'Rank 2 • Silver Medal' },
+            { badgeBg: '#fffbeb', badgeText: '#b45309', badgeBorder: '#fde68a', label: 'Rank 1 • Gold Medal' },
+            { badgeBg: '#f3f4f6', badgeText: '#4b5563', badgeBorder: '#e5e7eb', label: 'Rank 2 • Silver Medal' },
             { badgeBg: '#fff7ed', badgeText: '#c2410c', badgeBorder: '#ffedd5', label: 'Rank 3 • Bronze Medal' }
           ][idx];
 
           return (
-            <div key={student.id} className="editorial-card" style={{ padding: '18px 20px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+            <div key={student.id} className="editorial-card" style={{ padding: '16px 18px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <span style={{
-                    fontSize: '10.5px',
-                    fontWeight: '800',
+                    fontSize: '11px',
+                    fontWeight: '600',
                     backgroundColor: medalConfig.badgeBg,
                     color: medalConfig.badgeText,
                     border: `1px solid ${medalConfig.badgeBorder}`,
                     padding: '2px 8px',
                     borderRadius: '4px',
                     textTransform: 'uppercase',
-                    letterSpacing: '0.04em'
+                    letterSpacing: '0.03em'
                   }}>
                     {medalConfig.label}
                   </span>
@@ -148,20 +148,20 @@ export const WeeklyLeaderboard = () => {
                   </span>
                 </div>
 
-                <h3 style={{ fontSize: '16px', fontWeight: '800', color: '#0f172a' }}>
+                <h3 style={{ fontSize: '15px', fontWeight: '600', color: '#111827' }}>
                   {student.name}
                 </h3>
-                <div style={{ fontSize: '11.5px', color: '#64748b', marginTop: '2px' }}>
+                <div style={{ fontSize: '12px', color: '#6b7280', marginTop: '1px', fontWeight: '400' }}>
                   {student.email || student.rollNo} • {student.batch}
                 </div>
               </div>
 
-              <div style={{ marginTop: '16px', paddingTop: '12px', borderTop: '1px solid #f1f5f9', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+              <div style={{ marginTop: '14px', paddingTop: '10px', borderTop: '1px solid #f3f4f6', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                 <div>
-                  <div style={{ fontSize: '10.5px', color: '#64748b', fontWeight: '600', textTransform: 'uppercase' }}>
+                  <div style={{ fontSize: '11px', color: '#6b7280', fontWeight: '500', textTransform: 'uppercase' }}>
                     Portfolio Valuation
                   </div>
-                  <div className="mono-num" style={{ fontSize: '18px', fontWeight: '800', color: '#0f172a' }}>
+                  <div className="mono-num" style={{ fontSize: '16px', fontWeight: '600', color: '#111827', marginTop: '1px' }}>
                     {formatINR(student.portfolioValue)}
                   </div>
                 </div>
@@ -169,20 +169,20 @@ export const WeeklyLeaderboard = () => {
                 <button
                   onClick={() => setSelectedStudentId(student.id)}
                   style={{
-                    color: '#0f172a',
+                    color: '#1f2937',
                     fontSize: '12px',
-                    fontWeight: '700',
+                    fontWeight: '500',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '2px',
                     padding: '4px 8px',
                     borderRadius: '6px',
-                    backgroundColor: '#f8fafc',
-                    border: '1px solid #e2e8f0'
+                    backgroundColor: '#f9fafb',
+                    border: '1px solid #e5e7eb'
                   }}
                 >
                   <span>Inspect</span>
-                  <ChevronRight size={13} />
+                  <ChevronRight size={12} />
                 </button>
               </div>
             </div>
@@ -194,19 +194,25 @@ export const WeeklyLeaderboard = () => {
       <div className="editorial-card" style={{ overflow: 'hidden' }}>
         <div style={{
           padding: '14px 20px',
-          borderBottom: '1px solid #e2e8f0',
+          borderBottom: '1px solid #e5e7eb',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
           flexWrap: 'wrap',
-          gap: '10px'
+          gap: '12px'
         }}>
-          <h3 style={{ fontSize: '14px', fontWeight: '800', color: '#0f172a' }}>
-            Full Cohort Leaderboard Matrix
-          </h3>
-          <span style={{ fontSize: '12px', color: '#64748b' }}>
-            Click column headers to sort rankings
-          </span>
+          <div>
+            <h3 style={{ fontSize: '14px', fontWeight: '600', color: '#111827' }}>
+              Full Student Standings & MTM Matrix
+            </h3>
+            <p style={{ fontSize: '12px', color: '#6b7280', marginTop: '1px', fontWeight: '400' }}>
+              Real-time mark-to-market performance table. Click any column header to sort.
+            </p>
+          </div>
+
+          <div style={{ fontSize: '12px', color: '#6b7280', fontWeight: '400' }}>
+            Showing {sortedStudents.length} Students
+          </div>
         </div>
 
         <div className="table-responsive-wrapper">
@@ -214,8 +220,8 @@ export const WeeklyLeaderboard = () => {
             <thead>
               <tr>
                 <th style={{ width: '50px', textAlign: 'center' }}>Rank</th>
-                <th style={{ textAlign: 'left' }}>Participant</th>
-                <th style={{ textAlign: 'left' }}>Cohort</th>
+                <th>Participant</th>
+                <th>Cohort</th>
                 <th style={{ textAlign: 'right', cursor: 'pointer' }} onClick={() => handleSort('cashBalance')}>
                   Cash Balance ↕
                 </th>
@@ -225,36 +231,36 @@ export const WeeklyLeaderboard = () => {
                 <th style={{ textAlign: 'right', cursor: 'pointer' }} onClick={() => handleSort('portfolioValue')}>
                   Total Net Worth ▾
                 </th>
-                <th style={{ textAlign: 'right', cursor: 'pointer' }} onClick={() => handleSort('returnPct')}>
+                <th style={{ textAlign: 'center', cursor: 'pointer' }} onClick={() => handleSort('returnPct')}>
                   Return % ↕
                 </th>
-                <th style={{ textAlign: 'center', width: '140px' }}>Action</th>
+                <th style={{ textAlign: 'center', width: '130px' }}>Action</th>
               </tr>
             </thead>
             <tbody>
               {sortedStudents.map((student, idx) => (
                 <tr key={student.id}>
-                  <td style={{ textAlign: 'center', fontWeight: '800', fontFamily: 'var(--font-mono)' }}>
+                  <td style={{ textAlign: 'center', fontWeight: '600', color: '#6b7280' }}>
                     {idx === 0 ? (
                       <span className="editorial-badge editorial-badge-amber" style={{ padding: '2px 6px' }}>#1</span>
                     ) : (
-                      <span style={{ color: '#64748b' }}>#{idx + 1}</span>
+                      <span>#{idx + 1}</span>
                     )}
                   </td>
                   <td>
-                    <div style={{ fontWeight: '700', color: '#0f172a' }}>{student.name}</div>
-                    <div style={{ fontSize: '11px', color: '#64748b', fontFamily: 'var(--font-mono)' }}>{student.email || student.rollNo}</div>
+                    <div style={{ fontWeight: '500', color: '#111827' }}>{student.name}</div>
+                    <div style={{ fontSize: '11.5px', color: '#6b7280', fontWeight: '400' }}>{student.email || student.rollNo}</div>
                   </td>
-                  <td style={{ color: '#475569', fontSize: '12px' }}>
+                  <td style={{ color: '#4b5563', fontSize: '12.5px', fontWeight: '400' }}>
                     {student.batch}
                   </td>
-                  <td className="mono-num" style={{ textAlign: 'right', color: '#334155', fontWeight: '600' }}>
+                  <td className="mono-num" style={{ textAlign: 'right', color: '#374151', fontWeight: '400' }}>
                     {formatINR(student.cashBalance)}
                   </td>
-                  <td className="mono-num" style={{ textAlign: 'right', color: '#334155', fontWeight: '600' }}>
+                  <td className="mono-num" style={{ textAlign: 'right', color: '#374151', fontWeight: '400' }}>
                     {formatINR(student.equityValue)}
                   </td>
-                  <td className="mono-num" style={{ textAlign: 'right', fontWeight: '800', color: '#002147', fontSize: '13.5px' }}>
+                  <td className="mono-num" style={{ textAlign: 'right', fontWeight: '600', color: '#111827', fontSize: '13px' }}>
                     {formatINR(student.portfolioValue)}
                   </td>
                   <td style={{ textAlign: 'center' }}>
@@ -269,12 +275,12 @@ export const WeeklyLeaderboard = () => {
                           500000 + (student.portfolioValue - 500000) * 0.85,
                           student.portfolioValue
                         ]}
-                        width={52}
-                        height={20}
+                        width={48}
+                        height={18}
                         isPositive={student.returnPct >= 0}
                         strokeWidth={1.5}
                       />
-                      <span className={`editorial-badge ${student.returnPct >= 0 ? 'editorial-badge-profit' : 'editorial-badge-loss'}`} style={{ minWidth: '54px', justifyContent: 'center' }}>
+                      <span className={`editorial-badge ${student.returnPct >= 0 ? 'editorial-badge-profit' : 'editorial-badge-loss'}`} style={{ minWidth: '52px', justifyContent: 'center' }}>
                         {student.returnPct >= 0 ? `+${student.returnPct}%` : `${student.returnPct}%`}
                       </span>
                     </div>
@@ -283,20 +289,20 @@ export const WeeklyLeaderboard = () => {
                     <button
                       onClick={() => setSelectedStudentId(student.id)}
                       style={{
-                        color: '#0f172a',
+                        color: '#1f2937',
                         fontSize: '12px',
-                        fontWeight: '700',
+                        fontWeight: '500',
                         display: 'inline-flex',
                         alignItems: 'center',
-                        gap: '3px',
-                        padding: '4px 10px',
+                        gap: '2px',
+                        padding: '4px 9px',
                         borderRadius: '6px',
-                        backgroundColor: '#f8fafc',
-                        border: '1px solid #e2e8f0'
+                        backgroundColor: '#f9fafb',
+                        border: '1px solid #e5e7eb'
                       }}
                     >
                       <span>View Portfolio</span>
-                      <ChevronRight size={13} />
+                      <ChevronRight size={12} />
                     </button>
                   </td>
                 </tr>
