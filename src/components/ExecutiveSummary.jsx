@@ -49,11 +49,7 @@ export const ExecutiveSummary = () => {
     <div className="dashboard-container" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
       
       {/* 1. Four KPI Summary Cards */}
-      <div className="grid-4col-responsive" style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(4, 1fr)',
-        gap: '14px'
-      }}>
+      <div className="grid-4col-responsive">
         {/* Card 1: Fund Pool Valuation */}
         <div className="editorial-card" style={{ padding: '16px 18px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
@@ -312,11 +308,7 @@ export const ExecutiveSummary = () => {
       </div>
 
       {/* 3. Bottom Grid: Interactive Asset Allocation Ring & Capital Distribution */}
-      <div className="grid-2col-responsive" style={{
-        display: 'grid',
-        gridTemplateColumns: '1.1fr 0.9fr',
-        gap: '14px'
-      }}>
+      <div className="grid-2col-responsive">
         
         {/* Interactive Asset Allocation Ring */}
         <div className="editorial-card" style={{ padding: '18px 20px' }}>

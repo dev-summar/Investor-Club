@@ -113,11 +113,7 @@ export const WeeklyLeaderboard = () => {
       </div>
 
       {/* 2. Top 3 Podium Cards */}
-      <div className="grid-4col-responsive" style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(3, 1fr)',
-        gap: '14px'
-      }}>
+      <div className="grid-3col-responsive">
         {top3.map((student, idx) => {
           const medalConfig = [
             { badgeBg: '#fffbeb', badgeText: '#b45309', badgeBorder: '#fde68a', label: 'Rank 1 • Gold Medal' },

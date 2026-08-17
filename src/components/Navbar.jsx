@@ -1,7 +1,7 @@
 // ============================================================================
 // MODEL INSTITUTE OF ENGINEERING & TECHNOLOGY (MIET JAMMU)
 // SCHOOL OF MANAGEMENT - INVESTOR'S CLUB TRADING TERMINAL
-// Modernized Unified Single-Bar Header & Sleek Editorial Navigation
+// Fully Responsive Unified Single-Bar Header & Navigation
 // ============================================================================
 
 import React from 'react';
@@ -24,7 +24,6 @@ export const Navbar = () => {
     isSyncing,
     exportDataBookCSV,
     toastMessage,
-    selectedWeek,
     students
   } = useDashboard();
 
@@ -43,7 +42,7 @@ export const Navbar = () => {
   };
 
   return (
-    <header className="no-print sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.03)]">
+    <header className="no-print sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-[0_1px_3px_rgba(0,0,0,0.03)]">
       {/* Toast Notification */}
       {toastMessage && (
         <div style={{
@@ -53,7 +52,7 @@ export const Navbar = () => {
           padding: '5px 16px',
           textAlign: 'center',
           fontSize: '11.5px',
-          fontWeight: '600'
+          fontWeight: '500'
         }}>
           {toastMessage.message}
         </div>
@@ -63,21 +62,22 @@ export const Navbar = () => {
       <div style={{
         maxWidth: '1540px',
         margin: '0 auto',
-        padding: '0 24px',
-        height: '60px',
+        padding: '8px 16px',
+        minHeight: '56px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        gap: '16px'
+        flexWrap: 'wrap',
+        gap: '10px'
       }}>
-        {/* Left Side: Dual Branding Lockup (MIET + Investor's Club) & Compact Two-Line Stack */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        {/* Left Side: Dual Branding Lockup & Compact Two-Line Stack */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexShrink: 0 }}>
           {/* MIET Institutional Logo */}
           <img
             src="https://mietjmu.in/wp-content/uploads/2025/02/miet-logo-dark.png"
             alt="MIET Jammu"
             style={{
-              height: '38px',
+              height: '32px',
               width: 'auto',
               objectFit: 'contain',
               display: 'block'
@@ -85,14 +85,14 @@ export const Navbar = () => {
           />
 
           {/* Subtle Vertical Border */}
-          <div style={{ height: '24px', width: '1px', backgroundColor: '#cbd5e1' }} />
+          <div style={{ height: '20px', width: '1px', backgroundColor: '#cbd5e1' }} />
 
           {/* Investor's Club Official Emblem */}
           <img
             src="https://mietjmu.in/wp-content/uploads/2026/08/investors_club_logo_light_bg-scaled.png"
             alt="Investor's Club"
             style={{
-              height: '38px',
+              height: '32px',
               width: 'auto',
               objectFit: 'contain',
               display: 'block'
@@ -100,45 +100,44 @@ export const Navbar = () => {
           />
 
           {/* Subtle Vertical Border */}
-          <div style={{ height: '24px', width: '1px', backgroundColor: '#cbd5e1' }} />
+          <div style={{ height: '20px', width: '1px', backgroundColor: '#cbd5e1' }} />
 
-          {/* Compact Two-Line Stack for Visual Symmetry */}
+          {/* Compact Two-Line Stack */}
           <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div style={{
-              fontSize: '14px',
-              fontWeight: '900',
+              fontSize: '13.5px',
+              fontWeight: '700',
               color: '#002147',
-              letterSpacing: '-0.02em',
+              letterSpacing: '-0.015em',
               lineHeight: '1.2'
             }}>
               Investor's Club
             </div>
             <div style={{
               fontSize: '11px',
-              fontWeight: '600',
+              fontWeight: '500',
               color: '#64748b',
               lineHeight: '1.2',
               marginTop: '1px'
             }}>
-              Trading Challenge • School of Management
+              Trading Challenge
             </div>
           </div>
         </div>
 
         {/* Right Side: Live Pulse Badge + Action Buttons */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
           <span style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '6px',
+            gap: '5px',
             backgroundColor: '#ecfdf5',
             color: '#059669',
             border: '1px solid #a7f3d0',
-            padding: '4px 10px',
+            padding: '3px 8px',
             borderRadius: '9999px',
             fontSize: '11px',
-            fontWeight: '700',
-            fontFamily: 'var(--font-mono)'
+            fontWeight: '600'
           }}>
             <span className="pulsing-dot" /> Active MTM
           </span>
@@ -149,15 +148,14 @@ export const Navbar = () => {
             style={{
               backgroundColor: '#002147',
               color: '#ffffff',
-              padding: '6px 14px',
-              borderRadius: '7px',
+              padding: '6px 12px',
+              borderRadius: '6px',
               fontSize: '12px',
-              fontWeight: '600',
+              fontWeight: '500',
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px',
-              boxShadow: '0 1px 2px rgba(0, 33, 71, 0.15)',
-              fontFamily: 'var(--font-mono)',
+              boxShadow: '0 1px 2px rgba(0, 33, 71, 0.12)',
               transition: 'background-color 150ms ease'
             }}
             onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#003366'}
@@ -165,52 +163,49 @@ export const Navbar = () => {
             title="Refresh live portfolio valuations"
           >
             <RefreshCw size={12} style={{ animation: isSyncing ? 'spin 1s linear infinite' : 'none' }} />
-            <span>{isSyncing ? 'Updating...' : 'Refresh Portfolios'}</span>
+            <span>{isSyncing ? 'Updating...' : 'Refresh'}</span>
           </button>
 
           <button
             onClick={exportDataBookCSV}
             style={{
               backgroundColor: '#ffffff',
-              color: '#334155',
-              border: '1px solid #cbd5e1',
-              padding: '6px 12px',
-              borderRadius: '7px',
+              color: '#374151',
+              border: '1px solid #d1d5db',
+              padding: '6px 10px',
+              borderRadius: '6px',
               fontSize: '12px',
-              fontWeight: '600',
+              fontWeight: '500',
               display: 'inline-flex',
               alignItems: 'center',
               gap: '5px',
-              boxShadow: '0 1px 2px rgba(0, 0, 0, 0.02)',
-              fontFamily: 'var(--font-mono)'
+              boxShadow: '0 1px 2px rgba(0, 0, 0, 0.02)'
             }}
             title="Export CSV Statement"
           >
             <Download size={12} />
-            <span>Export CSV</span>
+            <span>Export</span>
           </button>
         </div>
       </div>
 
-      {/* 2. Sleek Editorial Segmented Navigation Bar */}
+      {/* 2. Responsive Segmented Navigation Bar */}
       <div style={{
         maxWidth: '1540px',
         margin: '0 auto',
-        padding: '0 24px 8px 24px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
+        padding: '0 16px 8px 16px',
         overflowX: 'auto',
+        WebkitOverflowScrolling: 'touch',
         scrollbarWidth: 'none',
         msOverflowStyle: 'none'
       }}>
         <div style={{
-          backgroundColor: '#f1f5f9',
+          backgroundColor: '#f3f4f6',
           padding: '3px',
-          borderRadius: '9px',
-          border: '1px solid #e2e8f0',
+          borderRadius: '8px',
+          border: '1px solid #e5e7eb',
           display: 'inline-flex',
-          gap: '3px',
+          gap: '2px',
           minWidth: 'max-content'
         }}>
           {navTabs.map((tab) => {
@@ -221,21 +216,21 @@ export const Navbar = () => {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 style={{
-                  padding: '5px 14px',
+                  padding: '5px 12px',
                   fontSize: '12px',
-                  fontWeight: isActive ? '700' : '500',
-                  color: isActive ? '#0f172a' : '#64748b',
+                  fontWeight: isActive ? '600' : '500',
+                  color: isActive ? '#111827' : '#4b5563',
                   backgroundColor: isActive ? '#ffffff' : 'transparent',
                   borderRadius: '6px',
                   boxShadow: isActive ? '0 1px 2px rgba(0,0,0,0.06)' : 'none',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '6px',
+                  gap: '5px',
                   whiteSpace: 'nowrap',
                   transition: 'all 120ms ease'
                 }}
               >
-                <Icon size={13} color={isActive ? '#002147' : '#94a3b8'} />
+                <Icon size={13} color={isActive ? '#002147' : '#6b7280'} />
                 <span>{tab.label}</span>
               </button>
             );
@@ -243,12 +238,12 @@ export const Navbar = () => {
         </div>
       </div>
 
-      {/* 3. Compact Horizontal 1-Line Metadata Bar */}
+      {/* 3. Compact Horizontal Metadata Bar */}
       <div style={{
         backgroundColor: '#fafbfc',
-        borderTop: '1px solid #f1f5f9',
-        borderBottom: '1px solid #e2e8f0',
-        padding: '6px 24px'
+        borderTop: '1px solid #f3f4f6',
+        borderBottom: '1px solid #e5e7eb',
+        padding: '6px 16px'
       }}>
         <div style={{
           maxWidth: '1540px',
@@ -257,22 +252,21 @@ export const Navbar = () => {
           alignItems: 'center',
           justifyContent: 'space-between',
           flexWrap: 'wrap',
-          gap: '12px',
-          fontSize: '11px',
-          fontFamily: 'var(--font-mono)',
-          color: '#64748b'
+          gap: '8px 12px',
+          fontSize: '11.5px',
+          color: '#6b7280'
         }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-            <span>Baseline: <strong style={{ color: '#002147' }}>₹5,00,000/Student</strong></span>
-            <span style={{ color: '#cbd5e1' }}>•</span>
-            <span>Total AUM: <strong style={{ color: '#002147' }}>{formatINR(currentTotalAUM)}</strong></span>
-            <span style={{ color: '#cbd5e1' }}>•</span>
-            <span>Participants: <strong style={{ color: '#002147' }}>{students.length} Verified</strong></span>
-            <span style={{ color: '#cbd5e1' }}>•</span>
-            <span>Settlement: <strong style={{ color: '#b45309' }}>Friday 15:30 IST</strong></span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+            <span>Baseline: <strong style={{ color: '#111827', fontWeight: '500' }}>₹5,00,000/Student</strong></span>
+            <span style={{ color: '#d1d5db' }}>•</span>
+            <span>Total AUM: <strong style={{ color: '#111827', fontWeight: '600' }} className="mono-num">{formatINR(currentTotalAUM)}</strong></span>
+            <span style={{ color: '#d1d5db' }}>•</span>
+            <span>Participants: <strong style={{ color: '#111827', fontWeight: '500' }}>{students.length} Verified</strong></span>
+            <span style={{ color: '#d1d5db' }}>•</span>
+            <span>Settlement: <strong style={{ color: '#b45309', fontWeight: '500' }}>Friday 15:30 IST</strong></span>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#059669', fontWeight: '600' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '4px', color: '#059669', fontWeight: '500' }}>
             <span>School of Management, MIET Jammu</span>
           </div>
         </div>

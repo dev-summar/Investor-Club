@@ -361,19 +361,21 @@ export const AwardsAndCertificates = () => {
       </div>
 
       {/* Official Certificate Canvas (High Resolution Printable) */}
-      <div className="printable-certificate" style={{
-        backgroundColor: '#ffffff',
-        border: '12px solid #002147',
-        outline: '3px solid #c5a059',
-        borderRadius: '6px',
-        padding: '44px 36px',
-        margin: '0 auto',
-        maxWidth: '920px',
-        width: '100%',
-        boxShadow: '0 10px 25px rgba(0, 33, 71, 0.1)',
-        position: 'relative',
-        textAlign: 'center'
-      }}>
+      <div className="cert-scroll-wrapper">
+        <div className="printable-certificate" style={{
+          backgroundColor: '#ffffff',
+          border: '12px solid #002147',
+          outline: '3px solid #c5a059',
+          borderRadius: '6px',
+          padding: '44px 36px',
+          margin: '0 auto',
+          maxWidth: '920px',
+          minWidth: '640px',
+          width: '100%',
+          boxShadow: '0 10px 25px rgba(0, 33, 71, 0.1)',
+          position: 'relative',
+          textAlign: 'center'
+        }}>
         
         {/* Watermark Background Shield */}
         <div style={{
@@ -521,10 +523,10 @@ export const AwardsAndCertificates = () => {
               <div style={{ fontSize: '11px', color: '#64748b' }}>School of Management, MIET</div>
             </div>
           </div>
-
         </div>
       </div>
-
     </div>
-  );
+
+  </div>
+);
 };

@@ -1,7 +1,7 @@
 /* ============================================================================
    MODEL INSTITUTE OF ENGINEERING & TECHNOLOGY (MIET JAMMU)
    SCHOOL OF MANAGEMENT - INVESTOR'S CLUB TRADING TERMINAL
-   Clean, Modern Typography & Editorial Light Theme
+   Clean, Modern Typography & Fully Responsive Design System
    ============================================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
@@ -98,7 +98,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.35;
 }
 
-/* Clean Modern Tabular Numerics (Inter with Tabular Figures) */
+/* Clean Tabular Numerics */
 .mono-num {
   font-family: var(--font-sans) !important;
   font-feature-settings: "tnum" 1, "cv05" 1;
@@ -174,7 +174,7 @@ input:focus, select:focus, textarea:focus {
   background: #9ca3af;
 }
 
-/* Layout Utilities */
+/* Main Dashboard Container */
 .dashboard-container {
   max-width: 1540px;
   margin: 0 auto;
@@ -252,11 +252,13 @@ input:focus, select:focus, textarea:focus {
   width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }
 
 /* Clean Modern Data Table */
 .editorial-table {
   width: 100%;
+  min-width: 680px;
   border-collapse: collapse;
   font-size: 13px;
 }
@@ -274,6 +276,7 @@ input:focus, select:focus, textarea:focus {
 .editorial-table th {
   padding: 10px 16px;
   text-align: left;
+  white-space: nowrap;
 }
 
 .editorial-table tbody tr {
@@ -290,6 +293,26 @@ input:focus, select:focus, textarea:focus {
   color: #374151;
   font-weight: 400;
   line-height: 1.45;
+  white-space: nowrap;
+}
+
+/* Responsive Grid Classes */
+.grid-4col-responsive {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.grid-3col-responsive {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.grid-2col-responsive {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 14px;
 }
 
 /* Slide-Over Drawer */
@@ -321,26 +344,72 @@ input:focus, select:focus, textarea:focus {
   to { transform: translateX(0); }
 }
 
-/* Responsive Rules */
-@media (max-width: 768px) {
+/* ============================================================================
+   RESPONSIVE BREAKPOINTS (Desktop, Tablet, Mobile)
+   ============================================================================ */
+
+/* Tablet Breakpoint (<= 1024px) */
+@media (max-width: 1024px) {
   .dashboard-container {
-    padding: 14px 14px 40px 14px;
+    padding: 16px 18px 50px 18px;
   }
   .grid-4col-responsive {
-    grid-template-columns: 1fr 1fr !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .grid-3col-responsive {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
   .grid-2col-responsive {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+/* Mobile Landscape & Tablet (<= 768px) */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 12px 14px 40px 14px;
+  }
+  .grid-4col-responsive {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .grid-3col-responsive {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .grid-2col-responsive {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
   .slideover-panel {
     max-width: 100% !important;
   }
+  .hide-on-mobile {
+    display: none !important;
+  }
 }
 
-@media (max-width: 480px) {
+/* Mobile Portrait (<= 600px) */
+@media (max-width: 600px) {
   .grid-4col-responsive {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
+  .grid-3col-responsive {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* Certificate Responsive Wrapper */
+.cert-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 12px;
 }
 
 /* Print Rules */
