@@ -41,7 +41,7 @@ export default {
         // Add permissive CORS headers to response
         const newHeaders = new Headers(response.headers);
         newHeaders.set('Access-Control-Allow-Origin', '*');
-        newHeaders.set('Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS');
+        newHeaders.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
         newHeaders.set('Access-Control-Allow-Headers', '*');
 
         return new Response(response.body, {
